@@ -12,14 +12,14 @@ def home(request):
 
 
 
-#@login_required
-# def create_blog(request):
-#     pass
+@login_required
+def create_blog(request):
+    pass
 
 
-#@login_required
-# def edit_blog(request):
-#     pass
+@login_required
+def edit_blog(request):
+    pass
 
 def signup(request):
     if request.method == 'POST':
@@ -52,6 +52,18 @@ def login(request):
 
     
 
-#@login_required
-# def profile(request):
-#     pass
+@login_required
+def profile(request):
+    pass
+
+
+
+@login_required
+def delete(request):
+    pass
+
+
+
+@login_required
+def profile(request):
+    pass

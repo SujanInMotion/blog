@@ -12,3 +12,19 @@ class BlogsForm(ModelForm):
             'type':forms.Select(attrs={'class':'form-select'}),
             'description':forms.Textarea(attrs={'class':'form-control'})
         }
+        
+        
+class UserForm(ModelForm):
+    class meta:
+        model = User
+        fields = ['username','password']
+        widgets= {
+            'username':forms.TextInput(attrs={'class:from-control mt-3'}),
+            'password': forms.PasswordInput(attrs={'class:from-select mt-3'})
+        }
+        labels = {
+            'username' : ('username:')
+        }
+        help_texts = {
+            'username':(),
+        }
