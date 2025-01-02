@@ -1,12 +1,13 @@
-{% extend "base.html" %}
+{% extends "base.html" %}
 
-{% block title %} signup {% blockend title %}
+{% block title %} signup {% endblock title %}
 
 {% block content %} 
 
     <form method='POST'>
       {% csrf_token %}
-      {{froms}}
+      {{form}}
+      <button type="submit"> Submit </button>
     </form>   
     
     

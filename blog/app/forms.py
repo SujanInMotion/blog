@@ -1,12 +1,12 @@
 from django.forms import ModelForm
 from django import forms
-from .models import blog
+from .models import Blog
 from django.contrib.auth.models import User
 
 class BlogsForm(ModelForm):
     class Meta:
-        model = blog
-        fields = ['Title','description','type']
+        model = Blog
+        fields = ['title','description','type']
         widgets = {
             'title':forms.TextInput(attrs={'class':'form-control'}),
             'type':forms.Select(attrs={'class':'form-select'}),
@@ -15,12 +15,12 @@ class BlogsForm(ModelForm):
         
         
 class UserForm(ModelForm):
-    class meta:
+    class Meta:
         model = User
         fields = ['username','password']
         widgets= {
-            'username':forms.TextInput(attrs={'class:from-control mt-3'}),
-            'password': forms.PasswordInput(attrs={'class:from-select mt-3'})
+            'username':forms.TextInput(attrs={'class':'from-control mt-3'}),
+            'password': forms.PasswordInput(attrs={'class':'from-select mt-3'})
         }
         labels = {
             'username' : ('username:')

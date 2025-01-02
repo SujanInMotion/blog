@@ -1,6 +1,31 @@
-{% extend "base.html" %}
+{% extends "base.html" %}
 
-{% block title %}home{% blockend title %}
+{% block title %}home{% endblock title %}
+<style>
+      body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #8fd3f4);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+          }
+          
+          /* Keyframes for the gradient animation */
+          @keyframes gradientShift {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+</style>
 
 {% block content %} 
 
@@ -10,9 +35,12 @@
 
        {% include 'profile.html' %}
 
+
+  
        {% include 'signup.html' %}
 
        {% include 'login.html' %}
+    
 
        {% include 'create_blog.html' %}
 
@@ -20,4 +48,4 @@
 
       {% include 'delete.html' %}
         
-{% endblock content %}
+{% endblock %}

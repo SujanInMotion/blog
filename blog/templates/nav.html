@@ -1,8 +1,7 @@
-
+{% extends "base.html" %}
 {% load static %}
-{% extend "base.html" %}
 
-{% block title %}navbar{% blockend title %}
+{% block title %}navbar{% endblock title %}
 
 {% block content %} 
 
@@ -18,23 +17,33 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <a class="nav-link active"  href="{% url '/' %}">Home</a>
+            <a class="nav-link active"  href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'create-blog' %}">Create</a>
+            <a class="nav-link active" href="{% url 'create-blog/' %}">Create</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{% url 'edit-blog' %}">Edit</a>
           </li>                
         </ul>  
 
-        <ul class="navbar-nav ms-auto">    
-              <li class="nav-item">
-                <a class="nav-link active"  href="{% url 'login' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'signup' %}">SignUp</a>
-              </li>
+        <ul class="navbar-nav ms-auto"> 
+          
+          {% if user.is_authenticated %}
+              
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'logout' %}">logout</a>
+          </li>
+              
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active"  href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'signup' %}">SignUp</a>
+          </li>
+
+          {% endif%}
         </ul>
       </div>
     </div>

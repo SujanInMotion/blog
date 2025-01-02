@@ -22,10 +22,11 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
+    path('logout/', logout , name = "logout"),
     path('login/', login , name = "login"),
     path('signup/', signup , name = "signup"),
     path('profile',profile,name='profile'),
     path('create-blog/', create_blog , name = "create"),
-    path('edit-blog/', edit_blog , name = "edit_blog"),
+    path('edit-blog/', edit_blog , name = "edit-blog"),
     path('delete/', delete , name = "delete")    
 ]

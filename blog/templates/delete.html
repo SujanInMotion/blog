@@ -1,8 +1,8 @@
-{% extend "base.html" %}
+{% extends "base.html" %}
 
-{% block title %}Delete blog{% blockend title %}
+{% block title %}Delete blog{% endblock title %}
 
-{% block content%} 
+{% block content %} 
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -21,8 +21,8 @@
           ...
         </div>
         <div class="modal-footer">
-         <a href="{% url 'delete/' %}"> <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Delete</button> </a>
-         <a href="{% url 'home/' %}"> <button type="button" class="btn btn-primary" >cancel</button> <a>
+         <a href="{% url 'delete' %}"> <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Delete</button> </a>
+         <a href="{% url 'home' %}"> <button type="button" class="btn btn-primary" >cancel</button> <a>
         </div>
       </div>
     </div>
@@ -31,4 +31,4 @@
 
 
 
-{% endblock  content%}
+{% endblock %}
