@@ -30,22 +30,22 @@ def signup(request):
         user_form_obj = UserForm(data=data)
         if user_form_obj.is_valid():
             user_form_obj.save()
-            return redirect('/login/')
+            return redirect('login')
     user_form_obj = UserForm()
     data = {'form':user_form_obj}
     return render(request,'signup.html',context=data)
 
 
-def login(request):
+def user_login(request):    
     if request.method == 'POST':
         user_username = request.POST.get('username')
         user_password = request.POST.get('password')
         
         user = authenticate(username=user_username,password=user_password)
         
-        if user!=None:
+        if user != None:            
             login(request,user)
-            return redirect('/home/')
+            return redirect('home')
     
     user_form_obj = UserForm()
     data = {'form':user_form_obj}
@@ -71,4 +71,5 @@ def profile(request):
 
 @login_required
 def logout(request):
-    pass
+    
+    return render(request,'index.html')
