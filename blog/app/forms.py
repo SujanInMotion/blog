@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 class BlogsForm(ModelForm):
     class Meta:
         model = Blog
-        fields = ['title','description','type']
+        fields = ['title','description']
         widgets = {
             'title':forms.TextInput(attrs={'class':'form-control'}),
-            'type':forms.Select(attrs={'class':'form-select'}),
+            # 'type':forms.Select(attrs={'class':'form-select'}),
             'description':forms.Textarea(attrs={'class':'form-control'})
         }
         

@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 class BlogType(models.Model):
     name = models.CharField(max_length=150)
     
-    def __str__(self):
-        return self.name
+
 
 class Blog(models.Model):
     title = models.CharField(max_length=150)

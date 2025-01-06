@@ -3,11 +3,12 @@
 {% block title %}create blog{% endblock title %}
 
 {% block content %} 
+
     <form method='POST'>
       {% csrf_token %}
-      {{froms}}
-    </form>   
-
-    
+      {{form}}
+      <button type="Submit">Submit</button>
+    </form> 
+ 
     
 {% endblock content %}
