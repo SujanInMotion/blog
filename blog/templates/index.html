@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Home {% endblock title %}
+
+
+
+{% block content %} 
+
+
+{% include "nav.html" %}
+
+
+{% include "body.html" %}
+
+
+
+<div id="profile"><a href="{% url 'profile' %}">Profile<a></div>
+
+
+{% endblock %}

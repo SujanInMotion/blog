@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} profile {% endblock title %}
+
+{% block content %} 
+
+
+
+<form method="POST">
+  
+{% csrf_token %}
+
+<label for="name">Name</label>
+<input type="text" id="name" name="name"><br>
+
+<label for="address">Address</label>
+<input type="text" id="address" name="address"><br>
+
+<label for="textarea">Textarea</label>
+<input type="textarea" maxlength="100" id="textarea" name="textarea"><br>
+
+<label for="profile">Profile</label>
+<input type="file" id="profile" name="profile" accept="image/*"><br>
+
+</form>
+
+
+
+{% endblock content %}
