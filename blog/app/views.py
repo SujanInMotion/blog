@@ -105,3 +105,6 @@ def delete(request,pk):
 def logoutView(request):    
     logout(request)
     return redirect(home)
+
+def modify(request):
+    pass

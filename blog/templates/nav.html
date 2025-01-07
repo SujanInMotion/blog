@@ -16,15 +16,23 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
 
-          {% comment %} <li class="nav-item">
-            <a class="nav-link active"  href="{% url 'home' %}">Home</a>
-          </li> {% endcomment %}
-          <li class="nav-item">
-            <a class="nav-link active" href="{% url 'create' %}">Create</a>
-          </li>
-          {% comment %} <li class="nav-item">
-            <a class="nav-link active" href="{% url 'edit-blog' %}">Edit</a>
-          </li>                 {% endcomment %}
+         
+
+          
+
+          <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold" href="{% url 'modify' %}">Modify</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+          
+          
+        
         </ul>  
 
         <ul class="navbar-nav ms-auto"> 
@@ -32,15 +40,15 @@
           {% if user.is_authenticated %}
               
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'logout' %}">logout</a>
+            <a class="nav-link active fw-bold" href="{% url 'logout' %}">logout</a>
           </li>
               
           {% else %}
           <li class="nav-item">
-            <a class="nav-link active"  href="{% url 'login' %}">Login</a>
+            <a class="nav-link active fw-bold"  href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'signup' %}">SignUp</a>
+            <a class="nav-link active fw-bold" href="{% url 'signup' %}">SignUp</a>
           </li>
 
           {% endif %}
@@ -51,3 +59,49 @@
 
 
   {% endblock %}
+
+
+
+
+
+
+
+
+
+
+  {% comment %} {% for blogvalue in blogs %}
+
+
+  <div class="d-flex justify-content-end"> 
+      <a href="{% url 'edit-blog' pk=blogvalue.id %}">
+          <button type="button" class="btn btn-warning">Edit</button>
+      </a>
+      <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Delete
+      </button>
+  </div>
+</div>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you surely want to delete Your Blog</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Click on "Yes" to Delete surely<br>
+                        Click on "No" to Cancel
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <a href="{% url 'delete' pk=blogvalue.id %}"><button type="button" class="btn btn-primary">Yes</button></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                {% endfor %} {% endcomment %}
