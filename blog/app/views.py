@@ -16,8 +16,24 @@ def home(request):
     return render(request,"index.html",context = data)
     
 
+@login_required
+def edit_blog(request,pk):  
+    edit_blog_obj = Blog.objects.get(id=pk)
+    if request.method == 'POST':
+        form_obj = BlogsForm(instance=edit_blog_obj, data=request.POST)
+        if form_obj.is_valid():
+            form_obj.save()       
+    form_obj = BlogsForm(instance=edit_blog_obj)
+    data = {'form':form_obj}
+    return render(request,'edit_blog.html',context=data)    
 
+def modify(request):
+    pass
 
+@login_required
+def profile(request):
+    pass 
+    
 @login_required
 def create_blog(request):
     create_blog_obj = BlogsForm()
@@ -35,23 +51,6 @@ def create_blog(request):
             messages.error(request,create_blog_obj.errors)
             return render(request,"create_blog.html",context=data)    
     return render(request,"create_blog.html",context=data)    
-
-
-     
-
-
-@login_required
-def edit_blog(request,pk):
-    pass
-
-
-
-
-
-
-
-
-
 
 
 
@@ -84,14 +83,7 @@ def user_login(request):
     
     user_form_obj = UserForm()
     data = {'form':user_form_obj}
-    return render(request,'login.html',context=data)
-
-    
-
-@login_required
-def profile(request):
-    pass
-
+    return render(request,'login.html',context=data) 
 
 
 @login_required
@@ -106,5 +98,3 @@ def logoutView(request):
     logout(request)
     return redirect(home)
 
-def modify(request):
-    pass

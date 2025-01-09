@@ -28,6 +28,6 @@ urlpatterns = [
     path('signup/', signup , name = "signup"),
     path('profile',profile,name='profile'),
     path('create-blog/', create_blog , name = "create"),
-    path('edit-blog/<int:pk>/', edit_blog , name = "edit-blog"),
+    path('edit-blog/<int:pk>/', edit_blog , name = 'edit-blog'),
     path('delete/<int:pk>', delete , name = "delete")    
 ]
